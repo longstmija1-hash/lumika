@@ -1,0 +1,209 @@
+.direction-bar {
+  background: #eee9f4;
+  border-bottom: 1px solid #ddd2e8;
+  color: #72627d;
+}
+.direction-inner {
+  width: min(1480px, calc(100% - 112px));
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+}
+.direction-caption {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.direction-caption strong {
+  font-weight: 600;
+  color: #51415f;
+}
+.direction-switch {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 13px;
+  background: #e1d9eb;
+  padding: 4px;
+  gap: 4px;
+  width: 610px;
+  max-width: 100%;
+}
+.direction-slider {
+  position: absolute;
+  inset: 4px auto 4px 4px;
+  width: calc(50% - 6px);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 10px #37244714;
+  border: 1px solid #f9f5ff;
+  z-index: -1;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.4s;
+}
+.direction-school .direction-slider {
+  transform: translateX(calc(100% + 4px));
+}
+.direction-switch a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  color: #83748e;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 650;
+  text-decoration: none;
+  border-radius: 10px;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.direction-switch a > svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.direction-switch a small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: #8e8197;
+  margin-top: 1px;
+}
+.direction-switch a[aria-current="page"] {
+  color: #713ed1;
+}
+.direction-switch a[aria-current="page"] small {
+  color: #8a70a5;
+}
+.direction-switch a:hover:not([aria-current]) {
+  background: #ffffff65;
+  color: #604b73;
+}
+.direction-switch .direction-arrow {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.direction-switch a:hover .direction-arrow,
+.direction-switch a:focus-visible .direction-arrow {
+  opacity: 1;
+  transform: none;
+}
+.direction-hint {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.direction-hint i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a18ac2;
+}
+.direction-school {
+  background: #e9efeb;
+  border-color: #d2dfd7;
+}
+.direction-school .direction-switch {
+  background: #dae5de;
+}
+.direction-school .direction-switch a[aria-current="page"] {
+  color: #356f59;
+}
+.direction-school .direction-switch a[aria-current="page"] small {
+  color: #6c8f7e;
+}
+.direction-school .direction-hint i {
+  background: #659a7a;
+}
+.direction-school .direction-caption strong {
+  color: #476754;
+}
+.direction-school .direction-hint {
+  color: #6b8776;
+}
+@media (min-width: 1700px) {
+  .direction-inner {
+    width: min(1560px, calc(100% - 160px));
+  }
+}
+@media (max-width: 1100px) {
+  .direction-inner {
+    width: calc(100% - 72px);
+  }
+  .direction-hint {
+    display: none;
+  }
+  .direction-switch {
+    width: 600px;
+  }
+  .direction-caption {
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 760px) {
+  .direction-inner {
+    width: calc(100% - 36px);
+    padding: 8px 0;
+  }
+  .direction-caption {
+    display: none;
+  }
+  .direction-switch {
+    width: 100%;
+  }
+  .direction-switch a {
+    font-size: 12px;
+    padding: 9px 11px;
+    gap: 8px;
+  }
+  .direction-switch a small {
+    font-size: 9px;
+  }
+  .direction-switch a > svg {
+    width: 19px;
+  }
+  .direction-switch .direction-arrow {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .direction-switch a {
+    font-size: 11px;
+    padding: 10px 8px;
+    gap: 6px;
+  }
+  .direction-switch a small {
+    display: none;
+  }
+  .direction-switch a > svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .direction-switch * {
+    transition: none !important;
+  }
+}
+/* Lightweight page entrance also works without the View Transition API. */
+.studio:has(.direction-bar) main { animation: direction-enter .45s ease both; }
+@keyframes direction-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio:has(.direction-bar) main { animation: none; }
+}
