@@ -1,0 +1,778 @@
+/* Course finder: all overrides are confined to this section. */
+.studio .finder-ref {
+  position: relative;
+  isolation: isolate;
+  width: min(1980px, calc(100% - 64px));
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 44px;
+  padding: 44px 40px 34px 56px;
+  border: 1px solid #e6dafa;
+  border-radius: 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 4%, #eee5fc9c, transparent 66%),
+    linear-gradient(125deg, #fcf8ff, #fbf9ff 70%, #fcf8fc);
+  box-shadow: none;
+}
+.finder-ref::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    145deg,
+    transparent 37%,
+    #ffffff55 37.2%,
+    transparent 54%
+  );
+  pointer-events: none;
+}
+.studio .finder-ref .finder-intro {
+  position: relative;
+  padding-top: 27px;
+  min-height: 580px;
+  min-width: 0;
+}
+.studio .finder-ref .finder-intro > .eyebrow {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: 0 0 32px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8566b4;
+  letter-spacing: 0.18em;
+  font-weight: 750;
+}
+.studio .finder-ref h2 {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(46px, 3.85vw, 80px);
+  font-weight: 850;
+  letter-spacing: -0.06em;
+  line-height: 1.04;
+  color: #1a1032;
+  margin: 0 0 27px;
+}
+.studio .finder-ref h2 br {
+  display: block;
+}
+.studio .finder-ref .finder-intro > p {
+  position: relative;
+  z-index: 2;
+  font-size: 25px;
+  line-height: 1.43;
+  color: #8a72b1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  max-width: 530px;
+}
+.studio .finder-ref .finder-note {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 36px;
+  color: #9273bb;
+}
+.finder-ref .finder-note > svg {
+  width: 29px;
+  height: 32px;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+  color: #9673d1;
+}
+.studio .finder-ref .finder-progress {
+  position: relative;
+  z-index: 2;
+  max-width: 378px;
+  margin-top: 48px;
+}
+.finder-ref .finder-progress > div {
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.finder-ref .finder-progress > div > span {
+  height: 13px;
+  border-radius: 8px;
+  background: #e5d9f6;
+  transition:
+    background 0.25s,
+    box-shadow 0.25s;
+}
+.finder-ref .finder-progress > div > span.answered {
+  background: #aa84ed;
+  box-shadow: 0 2px 9px #aa84ed25;
+}
+.studio .finder-ref .finder-progress > span {
+  color: #947cbb;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.ff-mascot {
+  position: absolute;
+  width: 360px;
+  right: 56px;
+  bottom: -80px;
+  z-index: 1;
+  pointer-events: none;
+}
+.ff-mascot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(#000 82%, transparent 100%);
+}
+.ff-speech {
+  position: absolute;
+  right: -15px;
+  top: -92px;
+  min-width: 200px;
+  padding: 20px;
+  color: #8f6fbc;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+  background: #fffffff5;
+  border-radius: 30px;
+  transform: rotate(-12deg);
+  box-shadow: 0 10px 35px #9277bc06;
+}
+.ff-speech::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 40px;
+  width: 32px;
+  height: 22px;
+  background: white;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.ff-speech > svg:first-of-type {
+  display: inline-block;
+  vertical-align: -3px;
+  color: #956adc;
+  stroke-width: 2.3;
+}
+.ff-speech > svg:last-of-type {
+  position: absolute;
+  right: -31px;
+  top: -25px;
+  width: 40px;
+  height: 45px;
+}
+.ff-trail {
+  position: absolute;
+  right: -80px;
+  bottom: -67px;
+  width: 440px;
+  height: 280px;
+  color: #e4d7f98c;
+  z-index: 0;
+  pointer-events: none;
+}
+.studio .finder-ref .finder-controls {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+  background: #ffffffc9;
+  border: 1px solid #fff;
+  border-radius: 34px;
+  padding: 33px 33px 20px;
+  box-shadow: 0 18px 50px #9a7ac412;
+}
+.studio .finder-ref fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 32px;
+  min-width: 0;
+}
+.studio .finder-ref legend {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+  margin: 0 0 13px;
+  color: #28183f;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+}
+.studio .finder-ref legend > span {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f3ecff;
+  color: #8753d3;
+  font-size: 15px;
+  letter-spacing: 0;
+  font-weight: 650;
+}
+.studio .finder-ref .choices {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.studio .finder-ref .choices button {
+  border: 1px solid #e2d6f4;
+  border-radius: 18px;
+  min-height: 58px;
+  padding: 13px 32px;
+  color: #4f3a73;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  background: #ffffffa6;
+  box-shadow: none;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.studio .finder-ref .choices button:hover {
+  border-color: #b79ae8;
+  background: #f7f1fe;
+}
+.studio .finder-ref .choices button.selected {
+  background: linear-gradient(120deg, #efe5ff, #e6d9fa);
+  border-color: #9567ef;
+  color: #352052;
+  box-shadow: inset 0 0 16px #ffffff33;
+}
+.studio .finder-ref .choices button:active {
+  transform: translateY(1px);
+}
+.studio .finder-ref .finder-result {
+  border-top: 1px solid #e5dbf1;
+  padding-top: 18px;
+  margin-top: -6px;
+}
+.ff-result-empty {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 16px;
+  min-height: 102px;
+  background: linear-gradient(120deg, #f5effd, #f7f3fe);
+  border-radius: 21px;
+}
+.ff-result-icon {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #ffffffb3;
+  color: #a081dc;
+}
+.studio .finder-ref .finder-result .ff-result-empty > p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  color: #8f72b7;
+}
+.ff-hint-arrow {
+  width: 60px;
+  height: 40px;
+  margin-left: auto;
+  color: #d8c8ee;
+  flex-shrink: 0;
+}
+.ff-result-skeleton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  width: 30%;
+  max-width: 285px;
+  min-width: 190px;
+  border: 1px solid #e8def6;
+  border-radius: 21px;
+  background: #fbf8ff80;
+}
+.ff-result-skeleton > svg {
+  box-sizing: content-box;
+  padding: 15px;
+  border-radius: 50%;
+  background: #f0e8fc;
+  color: #baa3dc;
+  flex-shrink: 0;
+}
+.ff-result-skeleton > span {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+.ff-result-skeleton i {
+  display: block;
+  height: 13px;
+  border-radius: 3px;
+  background: #e9e1f3;
+}
+.ff-result-skeleton i:last-child {
+  width: 66%;
+}
+.studio .finder-ref .finder-result .tiny-label {
+  font-size: 12px;
+  color: #8d6ab8;
+  letter-spacing: 0.09em;
+}
+.studio .finder-ref .finder-result h3 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #51309a;
+  margin: 9px 0;
+}
+.studio .finder-ref .finder-result div > p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  color: #7e6c98;
+}
+.studio .finder-ref .ff-result-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 22px;
+  min-height: 52px;
+  color: white;
+  background: #7b4cde;
+  border: 1px solid #7345d5;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.studio .finder-ref .ff-result-cta:hover {
+  background: #6b3acb;
+  transform: translateY(-1px);
+}
+@media (max-width: 1800px) {
+  .studio .finder-ref {
+    gap: 30px;
+    padding: 36px 32px 28px 44px;
+    grid-template-columns: 0.86fr 1.14fr;
+  }
+  .studio .finder-ref .finder-intro > p {
+    font-size: 22px;
+    max-width: 445px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 16px;
+    gap: 12px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 27px 26px 20px;
+  }
+  .studio .finder-ref legend {
+    font-size: 19px;
+    gap: 17px;
+  }
+  .studio .finder-ref .choices {
+    gap: 10px;
+  }
+  .studio .finder-ref .choices button {
+    font-size: 16px;
+    padding: 12px 22px;
+    min-height: 54px;
+  }
+  .ff-mascot {
+    width: 305px;
+    right: 8px;
+    bottom: -60px;
+  }
+  .ff-speech {
+    font-size: 14px;
+    min-width: 180px;
+    padding: 17px;
+    top: -74px;
+  }
+  .studio .finder-ref .finder-progress {
+    max-width: 310px;
+  }
+  .studio .finder-ref .finder-progress > span {
+    font-size: 13px;
+  }
+  .ff-result-empty {
+    gap: 13px;
+    padding: 12px;
+  }
+  .ff-result-icon {
+    width: 49px;
+    height: 49px;
+  }
+  .studio .finder-ref .finder-result .ff-result-empty > p {
+    font-size: 16px;
+  }
+  .ff-result-skeleton {
+    min-width: 140px;
+    gap: 10px;
+    padding: 8px;
+  }
+  .ff-result-skeleton > svg {
+    width: 24px;
+    height: 24px;
+    padding: 9px;
+  }
+  .ff-hint-arrow {
+    width: 45px;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 560px;
+  }
+}
+@media (max-width: 1450px) {
+  .studio .finder-ref {
+    width: calc(100% - 56px);
+    padding: 32px;
+    grid-template-columns: 0.78fr 1.22fr;
+    gap: 28px;
+  }
+  .studio .finder-ref h2 {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -0.055em;
+  }
+  .studio .finder-ref .finder-intro > .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    margin-bottom: 25px;
+  }
+  .studio .finder-ref .finder-intro > p {
+    font-size: 19px;
+    max-width: 390px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 14px;
+    margin-top: 28px;
+    gap: 10px;
+  }
+  .finder-ref .finder-note > svg {
+    width: 23px;
+    height: 26px;
+  }
+  .studio .finder-ref .finder-progress {
+    margin-top: 34px;
+    max-width: 245px;
+  }
+  .finder-ref .finder-progress > div > span {
+    height: 9px;
+  }
+  .ff-mascot {
+    width: 250px;
+    right: -12px;
+    bottom: -65px;
+  }
+  .ff-speech {
+    right: 0;
+    top: -55px;
+    font-size: 12px;
+    min-width: 153px;
+    padding: 13px;
+    border-radius: 24px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 24px 22px 20px;
+    border-radius: 26px;
+  }
+  .studio .finder-ref legend {
+    font-size: 17px;
+    gap: 12px;
+  }
+  .studio .finder-ref legend > span {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .studio .finder-ref .choices button {
+    font-size: 14px;
+    padding: 12px 17px;
+    min-height: 50px;
+    border-radius: 14px;
+  }
+  .studio .finder-ref fieldset {
+    margin-bottom: 26px;
+  }
+  .ff-result-skeleton {
+    display: none;
+  }
+  .ff-hint-arrow {
+    margin-left: auto;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 550px;
+  }
+}
+@media (max-width: 1050px) {
+  .studio .finder-ref {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    gap: 30px;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 390px;
+    padding-top: 8px;
+  }
+  .studio .finder-ref h2 {
+    font-size: 54px;
+    max-width: 560px;
+  }
+  .studio .finder-ref .finder-intro > p {
+    font-size: 21px;
+    max-width: 450px;
+  }
+  .studio .finder-ref .finder-progress {
+    margin-top: 30px;
+    max-width: 330px;
+  }
+  .ff-mascot {
+    width: 280px;
+    right: 0;
+    bottom: -28px;
+  }
+  .ff-speech {
+    right: 0;
+    top: -52px;
+  }
+  .ff-trail {
+    right: -30px;
+    bottom: -25px;
+    width: 350px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 27px;
+  }
+  .studio .finder-ref legend {
+    font-size: 20px;
+  }
+  .studio .finder-ref .choices button {
+    font-size: 16px;
+    padding: 12px 23px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 16px;
+  }
+  .studio .finder-ref .finder-intro > .eyebrow {
+    font-size: 12px;
+  }
+  .ff-result-skeleton {
+    display: flex;
+    min-width: 160px;
+  }
+  .studio .finder-ref .finder-result .ff-result-empty > p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .studio .finder-ref {
+    width: calc(100% - 36px);
+    padding: 25px 20px 20px;
+    border-radius: 28px;
+    gap: 20px;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 470px;
+  }
+  .studio .finder-ref h2 {
+    font-size: clamp(38px, 7.4vw, 50px);
+    max-width: none;
+    margin-bottom: 20px;
+  }
+  .studio .finder-ref .finder-intro > p {
+    font-size: 18px;
+    max-width: 390px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 14px;
+    margin-top: 23px;
+    gap: 9px;
+  }
+  .studio .finder-ref .finder-progress {
+    max-width: 200px;
+    margin-top: 30px;
+  }
+  .studio .finder-ref .finder-progress > span {
+    font-size: 12px;
+    display: block;
+    max-width: 170px;
+  }
+  .ff-mascot {
+    width: 205px;
+    right: -7px;
+    bottom: -38px;
+  }
+  .ff-speech {
+    font-size: 11px;
+    min-width: 140px;
+    padding: 11px;
+    right: -8px;
+    top: -39px;
+  }
+  .ff-speech > svg:last-of-type {
+    width: 25px;
+    right: -13px;
+  }
+  .ff-trail {
+    width: 280px;
+    right: -20px;
+    bottom: -12px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+  .studio .finder-ref legend {
+    font-size: 17px;
+    align-items: flex-start;
+    gap: 11px;
+  }
+  .studio .finder-ref legend > span {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+  .studio .finder-ref .choices {
+    gap: 8px;
+  }
+  .studio .finder-ref .choices button {
+    font-size: 14px;
+    min-height: 47px;
+    padding: 11px 16px;
+    border-radius: 13px;
+  }
+  .studio .finder-ref fieldset {
+    margin-bottom: 25px;
+  }
+  .ff-result-empty {
+    gap: 11px;
+    align-items: flex-start;
+    padding: 13px;
+    min-height: 0;
+  }
+  .ff-result-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .ff-result-icon > svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ff-result-skeleton,
+  .ff-hint-arrow {
+    display: none;
+  }
+  .studio .finder-ref .finder-result .ff-result-empty > p {
+    font-size: 14px;
+  }
+  .studio .finder-ref .finder-result .ff-result-empty > p br {
+    display: none;
+  }
+  .studio .finder-ref .ff-result-cta {
+    width: 100%;
+    font-size: 14px;
+    padding: 13px 17px;
+  }
+  .studio .finder-ref .finder-result div > p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 420px) {
+  .studio .finder-ref {
+    padding: 23px 16px 16px;
+  }
+  .studio .finder-ref .finder-intro > .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    margin-bottom: 23px;
+  }
+  .studio .finder-ref h2 {
+    font-size: 37px;
+  }
+  .studio .finder-ref .finder-intro > p {
+    font-size: 16px;
+    max-width: 270px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 12px;
+  }
+  .studio .finder-ref .finder-progress {
+    max-width: 164px;
+  }
+  .ff-mascot {
+    width: 175px;
+    right: -15px;
+    bottom: -30px;
+  }
+  .ff-speech {
+    min-width: 122px;
+    right: 1px;
+    font-size: 10px;
+    top: -25px;
+    padding: 10px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 20px 15px;
+  }
+  .studio .finder-ref legend {
+    font-size: 16px;
+  }
+  .studio .finder-ref .choices button {
+    padding: 10px 13px;
+    font-size: 13px;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 462px;
+  }
+  .ff-speech > svg:first-of-type {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media (max-width: 360px) {
+  .studio .finder-ref h2 {
+    font-size: 32px;
+  }
+  .studio .finder-ref .finder-note {
+    font-size: 11px;
+  }
+  .studio .finder-ref .finder-progress {
+    max-width: 145px;
+  }
+  .ff-mascot {
+    width: 157px;
+    right: -16px;
+  }
+  .studio .finder-ref legend {
+    font-size: 15px;
+  }
+  .studio .finder-ref .finder-controls {
+    padding: 19px 12px;
+  }
+  .studio .finder-ref .choices button {
+    font-size: 12px;
+    padding: 10px 11px;
+  }
+  .studio .finder-ref .finder-intro {
+    min-height: 445px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .finder-ref * {
+    transition: none !important;
+  }
+}

@@ -19,8 +19,6 @@ import {
   Menu,
   X,
   ChevronDown,
-  Sparkles,
-  RotateCcw,
 } from "lucide-react";
 import { trackFunnel } from "../../lib/funnelAnalytics";
 import "../../components/CourseRoadmap.css";
@@ -35,6 +33,7 @@ import { SERVICE_LEVELS, LESSON_PACKAGES } from "../../data/lessonPackages";
 import "../studio.css";
 import "../studio-polish.css";
 import "./school.css";
+import ReferenceHero from "../../components/ReferenceHero";
 
 const subjects = [
   {
@@ -152,72 +151,6 @@ function Brand() {
     </Link>
   );
 }
-function LessonDemo() {
-  const [step, setStep] = useState(0);
-  return (
-    <div className="school-demo">
-      <div className="school-demo-toolbar">
-        <span>
-          <i />
-          МАСТЕРСКАЯ ПОНИМАНИЯ
-        </span>
-        <span>МАТЕМАТИКА / 07</span>
-      </div>
-      <div className="school-demo-paper">
-        <span className="school-demo-label">ПРИМЕР РАЗБОРА НА ЗАНЯТИИ</span>
-        <h2>
-          Сложное — это простое,
-          <br />
-          разобранное по шагам.
-        </h2>
-        <div className="equation">2x + 6 = 14</div>
-        <div className="equation-steps" aria-live="polite">
-          <div className={step >= 1 ? "done" : ""}>
-            <span>01</span>
-            <p>Вычтем 6 из обеих частей</p>
-            <strong>{step >= 1 ? "2x = 8" : "−6"}</strong>
-          </div>
-          <div className={step >= 2 ? "done" : ""}>
-            <span>02</span>
-            <p>Разделим обе части на 2</p>
-            <strong>{step >= 2 ? "x = 4" : "÷2"}</strong>
-          </div>
-        </div>
-        <button
-          className="demo-next"
-          onClick={() => setStep(step === 2 ? 0 : step + 1)}
-        >
-          {step === 2 ? (
-            <>
-              <RotateCcw size={16} />
-              Ещё раз по шагам
-            </>
-          ) : (
-            <>
-              Разобрать следующий шаг
-              <ArrowRight size={17} />
-            </>
-          )}
-        </button>
-      </div>
-      <div className="school-demo-note">
-        <span>НК</span>
-        <p>
-          {step === 2
-            ? "Получилось. Теперь главное — понять, почему."
-            : "Не запоминаем ответ. Находим путь к нему."}
-        </p>
-        <Check size={18} />
-      </div>
-      <span className="school-float formula-a">a² + b² = c²</span>
-      <span className="school-float formula-b">
-        <Sparkles size={17} />
-        Теперь понятно!
-      </span>
-    </div>
-  );
-}
-
 export default function SchoolPage() {
   const [menu, setMenu] = useState(false),
     [subject, setSubject] = useState("Математика"),
@@ -275,7 +208,7 @@ export default function SchoolPage() {
       <a href="#school-main" className="skip-link">
         К содержимому
       </a>
-      <header className="studio-header">
+      <header className="studio-header ref-header">
         <DirectionSwitch active="school" />
         <div className="header-inner">
           <Brand />
@@ -315,42 +248,7 @@ export default function SchoolPage() {
         </div>
       </header>
       <main id="school-main">
-        <section className="section school-hero">
-          <div>
-            <span className="eyebrow">
-              <i />
-              ШКОЛЬНЫЕ ПРЕДМЕТЫ · ОГЭ · ЕГЭ
-            </span>
-            <h1>
-              От «не понимаю»
-              <br />к уверенному
-              <br />
-              <span>«я могу».</span>
-            </h1>
-            <p>
-              Разбираемся в предмете, закрываем пробелы и готовимся к экзаменам.
-              С понятным планом и преподавателем, который рядом.
-            </p>
-            <div className="hero-actions">
-              <Button href="#school-finder">Найти свою программу</Button>
-              <a href="#subjects" className="text-link">
-                Выбрать предмет
-                <ArrowRight size={17} />
-              </a>
-            </div>
-            <div className="hero-trust">
-              <span>
-                <Check />
-                Индивидуальный маршрут
-              </span>
-              <span>
-                <Check />
-                Онлайн с преподавателем
-              </span>
-            </div>
-          </div>
-          <LessonDemo />
-        </section>
+        <ReferenceHero school />
         <div className="section school-principles">
           <div>
             <Compass />

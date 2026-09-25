@@ -1,0 +1,113 @@
+/* Reference styling is scoped to the programming teacher section only. */
+.studio .teacher-reference {
+  --tr-ink: #19152d;
+  --tr-muted: #7d758d;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.025fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 3vw, 64px);
+  width: min(1900px, calc(100% - clamp(40px, 11vw, 224px)));
+  margin-inline: auto;
+  padding-block: clamp(64px, 4.5vw, 98px);
+  color: var(--tr-ink);
+}
+.teacher-reference .tr-decoration {
+  position: absolute;
+  z-index: -1;
+  inset: 15px -4vw 25px 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.teacher-reference .tr-decoration::before {
+  content: "";
+  position: absolute;
+  width: 29%;
+  aspect-ratio: 1;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #f0e6f969, #f1e8f535);
+}
+.teacher-reference .tr-decoration svg { position: absolute; width: 100%; height: 100%; fill: none; stroke: #d8c6eb; stroke-width: 3; opacity: .7; }
+.teacher-reference .tr-decoration .tr-star { fill: #dac6f0; stroke: none; }
+.teacher-reference .tr-copy, .teacher-reference .tr-profile { min-width: 0; }
+.teacher-reference .tr-eyebrow { display: block; color: #9b78bd; font-size: clamp(12px, .75vw, 16px); font-weight: 800; letter-spacing: .14em; line-height: 1.5; }
+.studio .teacher-reference h2 { margin: 28px 0 22px; color: var(--tr-ink); font-size: clamp(34px, 3.35vw, 68px); line-height: 1.12; font-weight: 800; letter-spacing: -.055em; }
+.teacher-reference h2 > span { position: relative; }
+.teacher-reference .tr-strokes { position: absolute; width: clamp(32px, 2.8vw, 58px); height: auto; color: #b59ad5; }
+.teacher-reference h2 .tr-strokes { right: -1em; top: -.25em; }
+.studio .teacher-reference .tr-intro { max-width: 740px; margin: 0 0 27px; color: var(--tr-muted); font-size: clamp(16px, 1.15vw, 24px); line-height: 1.65; }
+.teacher-reference .tr-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 24px;
+  min-height: 58px; padding: 18px 28px; border: 1px solid #a48abc; border-radius: 18px;
+  color: #fff; background: linear-gradient(115deg, #8563a7, #9272b0 65%, #7c5ba0);
+  box-shadow: inset 0 1px 2px #ffffff60, 0 10px 24px #8762ab24;
+  font-size: clamp(15px, 1vw, 21px); font-weight: 700; line-height: 1.4;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.teacher-reference .tr-cta svg { width: 24px; height: 24px; flex-shrink: 0; transition: transform .2s; }
+.teacher-reference .tr-cta:hover { transform: translateY(-2px); box-shadow: inset 0 1px 2px #ffffff60, 0 14px 28px #8762ab38; }
+.teacher-reference .tr-cta:hover svg { transform: translateX(3px); }
+.teacher-reference .tr-cta:active { transform: translateY(0); }
+.teacher-reference .tr-benefits { display: grid; grid-template-columns: 1fr 1.06fr; gap: 18px; margin-top: 30px; }
+.teacher-reference .tr-benefit { display: flex; align-items: center; gap: clamp(14px, 1.3vw, 27px); min-width: 0; padding: clamp(18px, 1.25vw, 28px); border: 1px solid #e8ddf5; border-radius: 18px; background: linear-gradient(120deg, #fbf8ffb3, #f7f1fc8c); }
+.teacher-reference .tr-benefit-icon { display: grid; place-items: center; flex: 0 0 auto; width: clamp(46px, 3.7vw, 76px); aspect-ratio: 1; border-radius: 30%; background: linear-gradient(135deg, #eee1ff, #f0e6fc); color: #9671c0; }
+.teacher-reference .tr-benefit-icon svg { width: 48%; height: 48%; stroke-width: 2; }
+.studio .teacher-reference .tr-benefit h3 { margin: 0 0 8px; font-size: clamp(14px, 1vw, 21px); line-height: 1.35; font-weight: 800; letter-spacing: -.035em; }
+.studio .teacher-reference .tr-benefit p { color: var(--tr-muted); font-size: clamp(13px, .8vw, 17px); line-height: 1.55; margin: 0; }
+.teacher-reference .tr-profile { position: relative; padding: clamp(26px, 2.6vw, 54px); border: 1px solid #e7d8cb; border-radius: 30px; background: linear-gradient(145deg, #fcfaf7, #faf7f3 60%, #f6f1eb); box-shadow: 0 18px 40px #80684412, inset 0 1px 0 #fff; }
+.teacher-reference .tr-profile-strokes { right: 5%; top: 14%; color: #edbd98; }
+.teacher-reference .tr-profile-header { display: flex; align-items: center; gap: clamp(22px, 1.8vw, 36px); }
+.teacher-reference .tr-avatar { position: relative; width: clamp(76px, 6vw, 124px); aspect-ratio: 1; flex-shrink: 0; }
+.teacher-reference .tr-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 3px 7px #62564812; }
+.teacher-reference .tr-avatar > span { position: absolute; display: grid; place-items: center; right: -4px; bottom: 0; width: 39%; aspect-ratio: 1; background: #fffcf8; color: #8c7a70; border: 2px solid white; border-radius: 50%; box-shadow: 0 3px 6px #5444351c; }
+.teacher-reference .tr-avatar svg { width: 68%; height: 68%; }
+.studio .teacher-reference .tr-profile-header h3 { margin: 0 0 4px; font-size: clamp(26px, 1.75vw, 37px); line-height: 1.2; font-weight: 800; letter-spacing: -.04em; }
+.studio .teacher-reference .tr-profile-header p { margin: 0; font-size: clamp(14px, 1vw, 21px); color: var(--tr-muted); line-height: 1.5; }
+.studio .teacher-reference .tr-principle { position: relative; width: fit-content; margin: 34px 0 32px; font-size: clamp(23px, 1.85vw, 39px); font-weight: 750; line-height: 1.55; letter-spacing: -.045em; color: var(--tr-ink); }
+.teacher-reference .tr-principle > span { padding: 3px 9px 5px; background: linear-gradient(105deg, #eadbffde, #eee2ff); border-radius: 10px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.teacher-reference .tr-principle svg { position: absolute; width: 23%; right: 0; bottom: -12px; color: #b39dca; }
+.studio .teacher-reference .tr-bio { margin: 0; font-size: clamp(16px, 1.08vw, 23px); line-height: 1.6; color: var(--tr-muted); }
+.teacher-reference .tr-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.teacher-reference .tr-tags > span { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid #ddcfc3; border-radius: 999px; color: #8a7e76; font-size: clamp(12px, .85vw, 18px); line-height: 1.3; background: #fff6; }
+.teacher-reference .tr-tags svg { width: 22px; height: 22px; flex-shrink: 0; }
+@media (max-width: 1200px) and (min-width: 901px) {
+  .teacher-reference .tr-benefits { gap: 12px; }
+  .teacher-reference .tr-benefit { align-items: flex-start; flex-direction: column; }
+  .studio .teacher-reference .tr-principle { font-size: 23px; }
+}
+@media (max-width: 900px) {
+  .studio .teacher-reference { grid-template-columns: 1fr; width: calc(100% - 48px); max-width: 700px; gap: 32px; padding-block: 64px; }
+  .studio .teacher-reference h2 { font-size: clamp(34px, 5.5vw, 48px); }
+  .studio .teacher-reference .tr-intro { font-size: 17px; }
+  .teacher-reference .tr-decoration { inset-inline: -20px; }
+  .teacher-reference .tr-profile { padding: 30px; }
+  .studio .teacher-reference .tr-principle { font-size: clamp(23px, 4vw, 30px); }
+  .teacher-reference .tr-benefit { padding: 18px; }
+}
+@media (max-width: 520px) {
+  .studio .teacher-reference { width: calc(100% - 36px); padding-block: 48px; }
+  .teacher-reference .tr-eyebrow { font-size: 11px; letter-spacing: .11em; }
+  .studio .teacher-reference h2 { margin-top: 22px; font-size: clamp(29px, 7.6vw, 39px); letter-spacing: -.05em; }
+  .teacher-reference h2 .tr-strokes { width: 25px; right: -22px; top: -17px; }
+  .teacher-reference .tr-cta { width: 100%; padding: 17px 15px; gap: 12px; border-radius: 15px; font-size: 14px; }
+  .teacher-reference .tr-cta svg { width: 20px; }
+  .teacher-reference .tr-benefits { grid-template-columns: 1fr; gap: 12px; margin-top: 23px; }
+  .teacher-reference .tr-benefit { gap: 18px; }
+  .teacher-reference .tr-benefit-icon { width: 52px; }
+  .studio .teacher-reference .tr-benefit h3 { font-size: 16px; margin-bottom: 5px; }
+  .studio .teacher-reference .tr-benefit p { font-size: 14px; }
+  .teacher-reference .tr-profile { padding: 25px 20px; border-radius: 24px; }
+  .teacher-reference .tr-profile-header { gap: 18px; }
+  .teacher-reference .tr-avatar { width: 72px; }
+  .studio .teacher-reference .tr-profile-header h3 { font-size: 25px; }
+  .studio .teacher-reference .tr-profile-header p { font-size: 13px; max-width: 175px; }
+  .teacher-reference .tr-profile-strokes { width: 30px; top: 18px; right: 14px; }
+  .studio .teacher-reference .tr-principle { font-size: clamp(21px, 5.3vw, 27px); margin: 30px 0; }
+  .teacher-reference .tr-principle > span { padding-inline: 5px; }
+  .teacher-reference .tr-tags { gap: 9px; margin-top: 22px; }
+  .teacher-reference .tr-tags > span { padding: 10px 12px; font-size: 12px; }
+  .teacher-reference .tr-tags svg { width: 18px; height: 18px; }
+}

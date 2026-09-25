@@ -18,7 +18,6 @@ import {
   MousePointer2,
   ChevronDown,
   Rocket,
-  GraduationCap,
 } from "lucide-react";
 import LeadForm from "../components/landing/LeadForm";
 import DirectionSwitch from "../components/DirectionSwitch";
@@ -33,6 +32,10 @@ import {
 import { CONTACT_PHONE, CONTACT_PHONE_HREF } from "../data/landingContent";
 import "./studio.css";
 import "./studio-polish.css";
+import ReferenceHero from "../components/ReferenceHero";
+import CourseDirections from "../components/CourseDirections";
+import CourseFinder from "../components/CourseFinder";
+import TeacherReference from "../components/TeacherReference";
 
 const courses = [
   {
@@ -86,7 +89,7 @@ const faqs = [
   ],
   [
     "Как я пойму, что есть результат?",
-    "По тому, что ребёнок может сделать и объяснить самостоятельно. Обсуждаем пройденные темы, показываем проекты и объясняем, над чем работаем дальше. Сложность растёт по мере освоения материала.",
+    "Ребёнок начнет выполнять и объяснить задания самостоятельно. Обсуждаем пройденные темы, показываем проекты и объясняем, над чем работаем дальше. Сложность растёт по мере освоения материала.",
   ],
   [
     "Нужно ли сразу выбирать направление?",
@@ -127,52 +130,6 @@ function LinkButton({
       {children}
       <ArrowUpRight size={18} />
     </a>
-  );
-}
-
-function CourseVisual({ type }) {
-  return (
-    <div className={`course-visual course-visual-${type}`} aria-hidden="true">
-      {type === 0 ? (
-        <>
-          <span className="mini-command">
-            <Play size={14} fill="currentColor" />
-            начать игру
-          </span>
-          <span className="mini-command">
-            повторить <b>10</b> раз <ArrowRight size={14} />
-          </span>
-          <Gamepad2 className="mini-object" />
-        </>
-      ) : type === 1 ? (
-        <>
-          <span className="mini-browser-bar">
-            <i />
-            <i />
-            <i />
-            <span>my-first-site.dev</span>
-          </span>
-          <span className="mini-web-title">
-            Hello,
-            <br />
-            <em>my world.</em>
-          </span>
-          <MousePointer2 className="mini-object" />
-        </>
-      ) : (
-        <>
-          <span className="mini-code">
-            <span>func</span> buildFuture() {"{"}
-          </span>
-          <span className="mini-code">&nbsp; return "Hello, world!"</span>
-          <span className="mini-code">{"}"}</span>
-          <span className="mini-status">
-            <i />
-            200 OK · API работает
-          </span>
-        </>
-      )}
-    </div>
   );
 }
 
@@ -297,132 +254,8 @@ function ProjectPreview({ type = 0, hero = false }) {
   );
 }
 
-function CourseFinder({ onChoose }) {
-  const [age, setAge] = useState("");
-  const [experience, setExperience] = useState("");
-  const [interest, setInterest] = useState("");
-  const complete = age && experience && interest;
-  const index =
-    age === "7–9" ||
-    (age === "10–12" && (experience !== "Уже писал код" || interest === "Игры"))
-      ? 0
-      : (age === "13–15" || age === "16+") &&
-          experience === "Уже писал код" &&
-          (interest === "Приложения" ||
-            interest === "Настоящее программирование")
-        ? 2
-        : 1;
-  const course = courses[index];
-  return (
-    <section id="finder" className="finder section reveal">
-      <div className="finder-intro">
-        <span className="eyebrow">НЕ ЗНАЕТЕ, С ЧЕГО НАЧАТЬ?</span>
-        <h2>
-          Найдём его
-          <br />
-          точку старта.
-        </h2>
-        <p>Три коротких вопроса — и направление, которое стоит попробовать.</p>
-        <span className="finder-note">
-          <ShieldCheck size={17} />
-          Без контактов и регистрации
-        </span>
-        <div
-          className="finder-progress"
-          aria-label={`Выбрано ${[age, experience, interest].filter(Boolean).length} из 3 ответов`}
-        >
-          <div>
-            {[age, experience, interest].map((answer, i) => (
-              <span key={i} className={answer ? "answered" : ""} />
-            ))}
-          </div>
-          <span>
-            {[age, experience, interest].filter(Boolean).length} из 3 — ваш
-            маршрут становится яснее
-          </span>
-        </div>
-      </div>
-      <div className="finder-controls">
-        {[
-          [
-            "01",
-            "Сколько лет ребёнку?",
-            ["7–9", "10–12", "13–15", "16+"],
-            age,
-            setAge,
-          ],
-          [
-            "02",
-            "Уже знаком с программированием?",
-            ["Никогда не программировал", "Немного пробовал", "Уже писал код"],
-            experience,
-            setExperience,
-          ],
-          [
-            "03",
-            "Что ему интереснее создавать?",
-            ["Игры", "Сайты", "Приложения", "Настоящее программирование"],
-            interest,
-            setInterest,
-          ],
-        ].map(([n, title, options, value, setter]) => (
-          <fieldset key={n}>
-            <legend>
-              <span>{n}</span>
-              {title}
-            </legend>
-            <div className="choices">
-              {options.map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  aria-pressed={value === option}
-                  onClick={() => setter(option)}
-                  className={value === option ? "selected" : ""}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          </fieldset>
-        ))}
-        <div className="finder-result" aria-live="polite">
-          {complete ? (
-            <>
-              <div>
-                <span className="tiny-label">РЕКОМЕНДУЕМ ПОПРОБОВАТЬ</span>
-                <h3>
-                  {course.name}
-                  <ArrowUpRight size={21} />
-                </h3>
-                <p>
-                  {index === 0
-                    ? "Визуальные блоки помогут освоить логику через создание игр."
-                    : index === 1
-                      ? "Начнём с доступных основ веба и постепенно добавим настоящий код."
-                      : "Опыт уже есть — можно исследовать серверную сторону приложений."}{" "}
-                  Точный уровень уточним на знакомстве.
-                </p>
-              </div>
-              <LinkButton onClick={() => onChoose(course.name)}>
-                Обсудить программу
-              </LinkButton>
-            </>
-          ) : (
-            <p>
-              <Sparkles size={20} />
-              Выберите по одному ответу — здесь появится ваша рекомендация.
-            </p>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function LandingPage() {
   const [menu, setMenu] = useState(false);
-  const [project, setProject] = useState(0);
   const [program, setProgram] = useState("Подбор программы");
   const [success, setSuccess] = useState(false);
   const chooseProgram = (name) => {
@@ -458,7 +291,7 @@ export default function LandingPage() {
       <a className="skip-link" href="#main">
         К содержимому
       </a>
-      <header className="studio-header">
+      <header className="studio-header ref-header">
         <DirectionSwitch active="it" />
         <div className="header-inner">
           <Brand />
@@ -503,126 +336,7 @@ export default function LandingPage() {
         </div>
       </header>
       <main id="main">
-        <section className="hero section">
-          <div className="hero-copy">
-            <span className="eyebrow">
-              <i />
-              ОНЛАЙН-ШКОЛА ПРОГРАММИРОВАНИЯ · 7–16+
-            </span>
-            <h1>
-              Сегодня играет.
-              <br />
-              Завтра —<br />
-              <span>создаёт своё.</span>
-            </h1>
-            <p>
-              Игры, сайты и приложения — идеи ребёнка становятся настоящими
-              проектами. С преподавателем, который помогает понять.
-            </p>
-            <div className="hero-actions">
-              <LinkButton href="#finder">Подобрать программу</LinkButton>
-              <a className="text-link" href="#courses">
-                Смотреть направления
-                <ArrowRight size={17} />
-              </a>
-            </div>
-            <div className="hero-trust">
-              <span>
-                <Check />С нуля и с опытом
-              </span>
-              <span>
-                <Check />В своём темпе
-              </span>
-              <span>
-                <Check />
-                Практика на занятиях
-              </span>
-            </div>
-            <a href="/school" className="it-school-bridge">
-              <GraduationCap aria-hidden="true" />
-              <span>
-                <small>А если нужна помощь со школьными предметами?</small>
-                <strong>Школа и экзамены · ОГЭ и ЕГЭ</strong>
-              </span>
-              <ArrowUpRight size={20} aria-hidden="true" />
-            </a>
-          </div>
-          <div className="hero-art">
-            <div className="art-grid" />
-            <div className="art-caption">
-              <span className="status-dot" />
-              ИЗ «А ЧТО, ЕСЛИ…» В «Я СДЕЛАЛ!»
-            </div>
-            <div className="floating-code">
-              <Code2 size={16} />
-              <span>when idea becomes real</span>
-            </div>
-            <div className="main-project">
-              <div
-                className="project-tabs"
-                role="tablist"
-                aria-label="Примеры направлений"
-                onKeyDown={(event) => {
-                  const offsets = { ArrowRight: 1, ArrowLeft: -1 };
-                  if (
-                    !(event.key in offsets) &&
-                    event.key !== "Home" &&
-                    event.key !== "End"
-                  )
-                    return;
-                  event.preventDefault();
-                  const next =
-                    event.key === "Home"
-                      ? 0
-                      : event.key === "End"
-                        ? 2
-                        : (project + offsets[event.key] + 3) % 3;
-                  setProject(next);
-                  document.getElementById(`project-tab-${next}`)?.focus();
-                }}
-              >
-                {courses.map((c, i) => (
-                  <button
-                    key={c.name}
-                    role="tab"
-                    id={`project-tab-${i}`}
-                    aria-selected={project === i}
-                    tabIndex={project === i ? 0 : -1}
-                    aria-controls="hero-project"
-                    onClick={() => setProject(i)}
-                  >
-                    <c.icon size={15} />
-                    {c.name}
-                  </button>
-                ))}
-              </div>
-              <div
-                id="hero-project"
-                role="tabpanel"
-                aria-labelledby={`project-tab-${project}`}
-              >
-                <ProjectPreview type={project} hero />
-              </div>
-            </div>
-            <div className="project-sticker">
-              <span className="sticker-icon">
-                <Check size={19} />
-              </span>
-              <div>
-                <strong>Это я создал!</strong>
-                <span>Первый проект — большая гордость</span>
-              </div>
-              <Sparkles size={17} />
-            </div>
-            <span className="art-footer">
-              ПРИМЕР УЧЕБНОГО ПРОЕКТА <span>01 — 03</span>
-            </span>
-            <div className="cursor-label">
-              <MousePointer2 size={23} fill="currentColor" />
-              <span>будущий разработчик</span>
-            </div>
-          </div>
-        </section>
+        <ReferenceHero renderProject={(type) => <ProjectPreview type={type} hero />} />
         <div className="principle-strip section">
           <span>
             Меньше «просто за компьютером».
@@ -654,82 +368,10 @@ export default function LandingPage() {
             </span>
           </div>
         </div>
-        <section id="courses" className="section section-space reveal">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">
-                ТРИ НАПРАВЛЕНИЯ. МНОЖЕСТВО ВОЗМОЖНОСТЕЙ.
-              </span>
-              <h2>
-                У каждого создателя
-                <br />
-                свой первый шаг.
-              </h2>
-            </div>
-            <p>
-              От визуальных блоков до собственного API. Выбираем старт по
-              готовности ребёнка, а не только по возрасту.
-            </p>
-          </div>
-          <div className="course-grid">
-            {courses.map((course, i) => (
-              <article
-                className={`course-card ${course.tone}`}
-                key={course.name}
-              >
-                <div className="course-top">
-                  <span className="course-icon">
-                    <course.icon size={26} />
-                  </span>
-                  <span>{course.age}</span>
-                </div>
-                <div className="course-name">
-                  {course.name}
-                  <span>{course.tag}</span>
-                </div>
-                <CourseVisual type={i} />
-                <h3>{course.title}</h3>
-                <p>{course.text}</p>
-                <ul>
-                  {course.skills.map((skill) => (
-                    <li key={skill}>
-                      <Check size={15} />
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-                <div className="course-project">
-                  <span className="tiny-label">
-                    ПРОЕКТ, КОТОРЫМ МОЖНО ГОРДИТЬСЯ
-                  </span>
-                  <strong>{course.project}</strong>
-                </div>
-                <div className="course-level">
-                  <span className={`level-bars bars-${i}`}>
-                    <i />
-                    <i />
-                    <i />
-                  </span>
-                  {course.level}
-                </div>
-                <LinkButton
-                  onClick={() => {
-                    chooseProgram(course.name);
-                    setSuccess(false);
-                  }}
-                >
-                  Попробовать {course.name}
-                </LinkButton>
-              </article>
-            ))}
-          </div>
-          <p className="section-footnote">
-            Возраст — ориентир. Программу и сложность уточняем после знакомства
-            с ребёнком.
-          </p>
-        </section>
+        <CourseDirections courses={courses} onChoose={(name) => { chooseProgram(name); setSuccess(false); }} />
         <CourseRoadmap onChoose={chooseProgram} />
         <CourseFinder
+          courses={courses}
           onChoose={(value) => {
             chooseProgram(value);
             setSuccess(false);
@@ -863,67 +505,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="section section-space trust-section reveal">
-          <div>
-            <span className="eyebrow">ЗА ТЕХНОЛОГИЯМИ — ЧЕЛОВЕК</span>
-            <h2>
-              Внимание к ребёнку.
-              <br />
-              Ясность для родителя.
-            </h2>
-            <p>
-              У каждого свой темп и свои вопросы. Поэтому мы начинаем со
-              знакомства и выстраиваем движение от простого к сложному.
-            </p>
-            <LinkButton href="#enroll" secondary>
-              Познакомиться с преподавателем
-            </LinkButton>
-            <div className="trust-benefits">
-              <div>
-                <ShieldCheck />
-                <strong>Программа под ребёнка</strong>
-                <span>Учитываем интересы, опыт и темп.</span>
-              </div>
-              <div>
-                <Code2 />
-                <strong>Прогресс на практике</strong>
-                <span>Обсуждаем проекты и следующие шаги.</span>
-              </div>
-            </div>
-          </div>
-          <article className="teacher-card">
-            <div className="teacher-header">
-              <span className="teacher-avatar">
-                <img
-                  src="/intro-portrait.jpg"
-                  width="80"
-                  height="80"
-                  alt="Данил Ф., сооснователь IT-направления"
-                  loading="lazy"
-                />
-                <span>
-                  <Code2 size={18} />
-                </span>
-              </span>
-              <div>
-                <h3>Данил Ф.</h3>
-                <p>Сооснователь · IT-направление</p>
-              </div>
-            </div>
-            <div className="teacher-principle">
-              Понять, почему код работает.
-              <br />И захотеть сделать что-то своё.
-            </div>
-            <p>
-              Системный аналитик и Frontend-разработчик. Показывает, как
-              технологии работают изнутри: от игр к созданию IT-продуктов.
-            </p>
-            <div className="teacher-tags">
-              <span>Понятные объяснения</span>
-              <span>Практика и обратная связь</span>
-            </div>
-          </article>
-        </section>
+        <TeacherReference />
         <ItCoursePricing onChoose={chooseProgram} />
         <section id="faq" className="section faq-section reveal">
           <div>

@@ -1,3 +1,5 @@
+/* Native links intentionally load each direction with its own page stylesheet. */
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { Code2, GraduationCap, ArrowUpRight } from "lucide-react";
 import "./DirectionSwitch.css";
 
@@ -35,7 +37,14 @@ export default function DirectionSwitch({ active = "it" }) {
           </a>
         </div>
         <span className="direction-hint">
-          {active === "it" ? "Создаём новое" : "Разбираемся в сложном"}
+          {active === "it" ? (
+            <span>
+              Развиваем таланты
+              <br />с 2018 года
+            </span>
+          ) : (
+            "Разбираемся в сложном"
+          )}
           <i />
         </span>
       </div>

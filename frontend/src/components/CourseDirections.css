@@ -1,0 +1,561 @@
+/* Only the programming course section uses this reference design. */
+.studio .course-ref {
+  width: min(1450px, calc(100% - 64px));
+  padding: 90px 0;
+  color: #141229;
+}
+.course-ref .cr-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 32px;
+  margin-bottom: 40px;
+}
+.studio .course-ref .cr-heading h2 {
+  position: relative;
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+.cr-pencil {
+  width: 34px;
+  height: 52px;
+  color: #8b50ff;
+  pointer-events: none;
+}
+.cr-heading h2 > .cr-pencil {
+  position: absolute;
+  bottom: -6px;
+  right: 35px;
+  transform: translateX(100%);
+}
+.course-ref .cr-intro {
+  position: relative;
+  max-width: 375px;
+  flex-shrink: 0;
+}
+.course-ref .cr-intro p {
+  margin: 0;
+  color: #766d8f;
+  font-size: 17px;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+}
+.cr-intro > svg {
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  right: -25px;
+  bottom: -36px;
+  color: #8545fc;
+  pointer-events: none;
+}
+.cr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.cr-card {
+  --cr-color: #ff9a16;
+  --cr-line: #ffdec1;
+  --cr-muted: #786b77;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px 32px 30px;
+  border: 1px solid var(--cr-line);
+  border-radius: 26px;
+  background: radial-gradient(ellipse at 40% 44%, #fffaf5, #fdf4eb);
+  box-shadow: 0 12px 30px #be916508;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.cr-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 42px #69557d14;
+}
+.cr-javascript {
+  --cr-color: #7733f5;
+  --cr-line: #d6bcff;
+  --cr-muted: #6f6091;
+  background: radial-gradient(ellipse at 45% 35%, #f9f3ff, #efe6ff);
+  box-shadow: 0 12px 35px #8963c309;
+}
+.cr-go {
+  --cr-color: #25a87c;
+  --cr-line: #c3ecdf;
+  --cr-muted: #6b7285;
+  background: radial-gradient(ellipse at 45% 40%, #f5fcf8, #edf7f1);
+}
+.cr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cr-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  color: var(--cr-color);
+  background: #ffffffc9;
+  border: 1px solid var(--cr-line);
+}
+.cr-javascript .cr-icon {
+  border-color: #fff;
+}
+.cr-age {
+  padding: 9px 19px;
+  border: 1px solid var(--cr-line);
+  border-radius: 28px;
+  color: #53465e;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #ffffff54;
+  white-space: nowrap;
+}
+.studio .course-ref .cr-name {
+  position: relative;
+  margin: 3px 0 0;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+.cr-name .cr-pencil {
+  display: inline-block;
+  width: 26px;
+  height: 39px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.course-ref .cr-tag {
+  margin: 2px 0 0;
+  font-size: 17px;
+  color: var(--cr-muted);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+.cr-visual {
+  position: relative;
+  height: 220px;
+  margin: 0 -20px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cr-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s;
+}
+.cr-card:hover .cr-visual img {
+  transform: translateY(-3px) rotate(-0.5deg);
+}
+.studio .course-ref .cr-card h4 {
+  margin: 0 0 12px;
+  font-family: var(--font-manrope), sans-serif;
+  white-space: pre-line;
+  font-size: 26px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+.course-ref .cr-description {
+  margin: 0;
+  min-height: 72px;
+  font-size: 17px;
+  line-height: 1.42;
+  letter-spacing: -0.025em;
+  color: #696079;
+}
+.cr-skills {
+  list-style: none;
+  padding: 0;
+  margin: 17px 0 20px;
+  display: grid;
+  gap: 10px;
+}
+.cr-skills li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #554e65;
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+.cr-skills li > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid white;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cr-color), white 55%),
+    var(--cr-color)
+  );
+  box-shadow: inset 0 0 0 1px #00000009;
+}
+.cr-project {
+  border-top: 1px solid var(--cr-line);
+  padding-top: 16px;
+  margin-top: auto;
+}
+.course-ref .cr-project > p {
+  margin: 0 0 7px;
+  font-size: 12px;
+  letter-spacing: 0.015em;
+  line-height: 1.5;
+  color: var(--cr-muted);
+}
+.cr-project > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 31px;
+}
+.cr-project svg {
+  color: color-mix(in srgb, var(--cr-color), #222 25%);
+  flex-shrink: 0;
+}
+.cr-project strong {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+.cr-level {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 20px 0 14px;
+  color: var(--cr-muted);
+  font-size: 14px;
+  min-height: 22px;
+}
+.cr-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 21px;
+  width: 27px;
+}
+.cr-bars i {
+  width: 6px;
+  height: 8px;
+  background: var(--cr-color);
+  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--cr-color), #555 10%);
+}
+.cr-bars i:nth-child(2) {
+  height: 14px;
+  opacity: 0.78;
+}
+.cr-bars i:nth-child(3) {
+  height: 21px;
+  opacity: 0.5;
+}
+.studio .course-ref .cr-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 61px;
+  padding: 15px 25px;
+  border: 1px solid var(--cr-line);
+  border-radius: 18px;
+  background: #ffffffe0;
+  color: #17132d;
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+  box-shadow: 0 8px 18px #aa817b08;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.studio .course-ref .cr-javascript .cr-cta {
+  color: white;
+  background: linear-gradient(115deg, #7733f5, #7534ed);
+  border-color: #7131e9;
+  box-shadow:
+    inset 0 0 0 2px #ffffff17,
+    0 9px 22px #7733f52b;
+}
+.cr-cta > .cr-pencil {
+  position: absolute;
+  right: -24px;
+  top: -25px;
+  width: 25px;
+  height: 44px;
+}
+.studio .course-ref .cr-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px #6a437422;
+}
+.studio .course-ref .cr-cta:active {
+  transform: translateY(1px);
+}
+.course-ref .cr-footnote {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #7c7286;
+}
+@media (max-width: 1300px) {
+  .studio .course-ref {
+    width: calc(100% - 56px);
+    padding: 76px 0;
+  }
+  .course-ref .cr-heading {
+    padding: 0 12px;
+    gap: 30px;
+  }
+  .studio .course-ref .cr-heading h2 {
+    font-size: 46px;
+  }
+  .course-ref .cr-intro {
+    max-width: 320px;
+  }
+  .course-ref .cr-intro p {
+    font-size: 16px;
+  }
+  .cr-card {
+    padding: 24px;
+  }
+  .cr-grid {
+    gap: 16px;
+  }
+  .cr-icon {
+    width: 54px;
+    height: 54px;
+  }
+  .studio .course-ref .cr-name {
+    font-size: 34px;
+  }
+  .cr-visual {
+    height: 190px;
+    margin-inline: -16px;
+  }
+  .studio .course-ref .cr-card h4 {
+    font-size: 23px;
+  }
+  .course-ref .cr-description,
+  .cr-skills li {
+    font-size: 15px;
+  }
+  .cr-project strong {
+    font-size: 14px;
+  }
+  .cr-project > p {
+    min-height: 36px;
+  }
+  .studio .course-ref .cr-cta {
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+  .cr-age {
+    font-size: 12px;
+    padding: 7px 13px;
+  }
+}
+@media (max-width: 1000px) {
+  .course-ref .cr-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .course-ref .cr-intro {
+    max-width: 510px;
+  }
+  .cr-intro > svg {
+    right: -70px;
+    bottom: -8px;
+    width: 65px;
+  }
+  .cr-card {
+    padding: 22px 18px;
+  }
+  .cr-visual {
+    height: 160px;
+    margin-inline: -12px;
+  }
+  .cr-skills li {
+    align-items: flex-start;
+    font-size: 14px;
+    gap: 8px;
+  }
+  .cr-project > div {
+    gap: 9px;
+  }
+  .cr-project strong {
+    font-size: 14px;
+  }
+  .cr-project > p {
+    font-size: 10px;
+  }
+  .cr-age {
+    padding: 7px 10px;
+  }
+  .cr-tag {
+    min-height: 50px;
+  }
+  .studio .course-ref .cr-card h4 {
+    font-size: 21px;
+  }
+  .studio .course-ref .cr-cta {
+    font-size: 13px;
+    padding: 13px;
+  }
+  .cr-name .cr-pencil {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .studio .course-ref {
+    width: calc(100% - 36px);
+    padding: 56px 0;
+  }
+  .course-ref .cr-heading {
+    padding: 0 5px;
+    margin-bottom: 30px;
+  }
+  .studio .course-ref .cr-heading h2 {
+    font-size: clamp(31px, 6vw, 44px);
+    line-height: 1.08;
+  }
+  .cr-heading h2 > .cr-pencil {
+    width: 23px;
+    right: 20px;
+  }
+  .course-ref .cr-intro {
+    max-width: 100%;
+  }
+  .course-ref .cr-intro p {
+    font-size: 16px;
+  }
+  .cr-intro > svg {
+    display: none;
+  }
+  .cr-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .cr-card {
+    padding: 26px;
+    max-width: 510px;
+    width: 100%;
+    margin: auto;
+    border-radius: 24px;
+  }
+  .cr-icon {
+    width: 56px;
+    height: 56px;
+  }
+  .cr-age {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  .studio .course-ref .cr-name {
+    font-size: 36px;
+    margin-top: 8px;
+  }
+  .course-ref .cr-tag {
+    min-height: 0;
+    font-size: 17px;
+  }
+  .cr-visual {
+    height: auto;
+    aspect-ratio: 1.85;
+    margin: 4px -15px 14px;
+  }
+  .studio .course-ref .cr-card h4 {
+    font-size: 26px;
+  }
+  .course-ref .cr-description {
+    font-size: 16px;
+    min-height: 0;
+    line-height: 1.55;
+  }
+  .cr-skills {
+    margin: 18px 0 22px;
+    gap: 12px;
+  }
+  .cr-skills li {
+    font-size: 15px;
+    align-items: center;
+  }
+  .course-ref .cr-project > p {
+    font-size: 11px;
+    min-height: 0;
+  }
+  .cr-project strong {
+    font-size: 15px;
+  }
+  .studio .course-ref .cr-cta {
+    font-size: 16px;
+    padding: 15px 20px;
+    min-height: 58px;
+  }
+  .cr-name .cr-pencil {
+    display: inline-block;
+  }
+  .cr-card:hover {
+    transform: none;
+  }
+  .course-ref .cr-footnote {
+    font-size: 12px;
+    text-align: left;
+  }
+}
+@media (max-width: 360px) {
+  .cr-card {
+    padding: 22px;
+  }
+  .studio .course-ref .cr-heading h2 {
+    font-size: 28px;
+  }
+  .cr-heading h2 > .cr-pencil {
+    display: none;
+  }
+  .cr-age {
+    font-size: 12px;
+  }
+  .studio .course-ref .cr-cta {
+    font-size: 14px;
+  }
+  .cr-project strong {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .course-ref * {
+    transition: none !important;
+  }
+}
+/* Final reference alignment: artwork fills the card without shrinking the copy. */
+@media(min-width:901px){
+  .cr-visual { margin-bottom:-7px; }
+  .cr-visual img { transform:translateY(-8px) scale(1.14); }
+  .cr-javascript .cr-visual img { transform:translateY(-12px) scale(1.18); }
+  .cr-card:hover .cr-visual img { transform:translateY(-11px) scale(1.14); }
+  .cr-javascript:hover .cr-visual img { transform:translateY(-15px) scale(1.18); }
+}
+@media(min-width:1301px){.studio .course-ref .cr-heading h2{font-size:58px}}
