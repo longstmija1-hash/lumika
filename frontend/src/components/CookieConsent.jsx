@@ -1,5 +1,6 @@
 "use client";
 
+import PrivacyLink from "./PrivacyLink";
 import React, { useState, useEffect } from 'react'
 import UmsButton from './landing/ui/UmsButton'
 
@@ -33,8 +34,8 @@ export default function CookieConsent() {
     >
       <div className="flex items-start gap-4 mb-4">
         <p className="text-ums-muted text-sm leading-relaxed">
-          Мы используем cookie, чтобы сайт работал корректно. Оставаясь с нами, вы соглашаетесь с
-          политикой обработки персональных данных.
+          Мы используем cookie, чтобы сайт работал корректно. Оставаясь с нами, вы соглашаетесь с{" "}
+          <PrivacyLink newTab>политикой обработки персональных данных</PrivacyLink>.
         </p>
       </div>
       <div className="flex justify-end mt-2">

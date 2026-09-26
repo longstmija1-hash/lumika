@@ -1,0 +1,20 @@
+.page { min-height: 100vh; background: #fcfafc; color: #292139; font-family: var(--font-manrope), sans-serif; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1200px; margin: auto; padding: 28px 32px; border-bottom: 1px solid #e8e0ed; }
+.brand { display: flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 800; letter-spacing: -.06em; }
+.brand > span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: #7344ee; color: white; font: 22px monospace; transform: rotate(-7deg); }
+.header nav { display: flex; gap: 25px; font-size: 14px; font-weight: 600; }
+.page a { color: #7043b2; }
+.page a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.page a:focus-visible { outline: 3px solid #986cdc; outline-offset: 5px; border-radius: 3px; }
+.document { max-width: 940px; padding: 60px 32px 72px; margin: auto; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .15em; color: #8c68ac; }
+.document h1 { margin: 20px 0 32px; font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -.045em; line-height: 1.15; }
+.document h2 { margin: 42px 0 18px; padding-top: 24px; border-top: 1px solid #e8e0ed; font-size: clamp(21px, 2.3vw, 27px); font-weight: 750; letter-spacing: -.025em; line-height: 1.35; }
+.document p, .document ul { margin: 16px 0; color: #51495e; font-size: 17px; line-height: 1.85; overflow-wrap: anywhere; }
+.document p { white-space: pre-line; }
+.document ul { padding-left: 25px; list-style: disc; }
+.document li { padding-left: 5px; margin-block: 5px; }
+.document strong { color: #30283e; font-weight: 700; }
+.document a { text-decoration: underline; text-underline-offset: 3px; }
+.footer { max-width: 1200px; padding: 28px 32px; border-top: 1px solid #e8e0ed; margin: auto; display: flex; gap: 24px; justify-content: space-between; color: #756a81; font-size: 14px; }
+@media(max-width: 600px) { .header { align-items: flex-start; flex-direction: column; padding: 22px; gap: 22px; } .header nav { flex-wrap: wrap; gap: 12px 24px; font-size: 13px; } .document { padding: 40px 22px 48px; } .document p, .document ul { font-size: 16px; line-height: 1.8; } .footer { padding: 25px 22px; flex-wrap: wrap; } }

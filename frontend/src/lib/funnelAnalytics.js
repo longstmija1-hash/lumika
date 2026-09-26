@@ -1,4 +1,5 @@
 import { track } from "@vercel/analytics";
+import { trackMetrikaGoal } from "./yandexMetrika";
 
 const events = new Set([
   "pricing_view",
@@ -38,10 +39,5 @@ export function trackFunnel(event, program = "") {
   try {
     track(event, properties);
   } catch {}
-  const counter = Number(process.env.NEXT_PUBLIC_YM_ID);
-  if (counter && typeof window.ym === "function") {
-    try {
-      window.ym(counter, "reachGoal", event, properties);
-    } catch {}
-  }
+  trackMetrikaGoal(event, properties);
 }

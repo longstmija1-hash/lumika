@@ -1,5 +1,7 @@
 "use client";
 
+import PrivacyLink from "../components/PrivacyLink";
+
 import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
@@ -640,6 +642,7 @@ export default function LandingPage() {
         <div>
           <Brand />
           <p>Место, где любопытство становится умением.</p>
+          <p><PrivacyLink /></p>
         </div>
         <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
         <span>© {new Date().getFullYear()} Люмика</span>

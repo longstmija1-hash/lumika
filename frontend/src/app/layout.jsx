@@ -1,7 +1,9 @@
 import "../index.css";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
+import { Suspense } from "react";
+import YandexMetrika from "../components/YandexMetrika";
+import { YANDEX_COUNTER_ID } from "../lib/yandexMetrika";
 import { Toaster } from "react-hot-toast";
 import CookieConsent from "../components/CookieConsent";
 import FunnelAnalytics from "../components/FunnelAnalytics";
@@ -27,37 +29,25 @@ export const metadata = {
   description:
     "Онлайн-школа программирования для детей и подростков. Создаём игры, сайты и приложения. Подбираем программу по возрасту, интересам и уровню ребёнка.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico?v=2",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru" className={`${manrope.variable} ${unbounded.variable}`}>
-      <head>
-        {process.env.NEXT_PUBLIC_YM_ID ? (
-          <Script id="metrika-counter" strategy="afterInteractive">
-            {`
-              (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-              m[i].l=1*new Date();
-              for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-              (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-              ym(${Number(process.env.NEXT_PUBLIC_YM_ID)}, "init", {
-                   clickmap:true,
-                   trackLinks:true,
-                   accurateTrackBounce:true,
-                   webvisor:true
-              });
-            `}
-          </Script>
-        ) : null}
-      </head>
       <body className={`${manrope.className} antialiased`}>
         {children}
         <CookieConsent />
         <Analytics />
+        <Suspense fallback={null}>
+          <YandexMetrika />
+        </Suspense>
+        <noscript>
+          {/* The tracking pixel is deliberately a plain image inside noscript. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`https://mc.yandex.ru/watch/${YANDEX_COUNTER_ID}`} width="1" height="1" style={{ position: "absolute", left: "-9999px" }} alt="" referrerPolicy="no-referrer" />
+        </noscript>
         <FunnelAnalytics />
         <Toaster
           position="top-right"

@@ -2,6 +2,7 @@
 
 import { useState, lazy, Suspense } from "react";
 import Link from "next/link";
+import PrivacyLink from "../../../components/PrivacyLink";
 import { FaTelegramPlane } from "react-icons/fa";
 import { Rocket, Check, Compass, Braces } from "lucide-react";
 import LumikaLogo from "../../../components/Logo";
@@ -30,6 +31,7 @@ const Navbar = ({ openModal }) => (
         <Link href="/" className="hover:text-[#111] transition-colors">
           На главную
         </Link>
+        <PrivacyLink />
         <Link href="/#courses" className="hover:text-[#111] transition-colors">
           Все предметы
         </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import PrivacyLink from "../PrivacyLink";
 import { useState, useEffect, useRef } from "react";
 import { trackFunnel } from "../../lib/funnelAnalytics";
 import { Loader2 } from "lucide-react";
@@ -20,7 +21,7 @@ function SoftInput({ id, label, error, className = "", ...props }) {
         id={id}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`ums-input ${error ? "ring-2 ring-red-400/60" : ""} ${className}`}
+        className={`ym-disable-keys ums-input ${error ? "ring-2 ring-red-400/60" : ""} ${className}`}
         {...props}
       />
       {error && (
@@ -169,7 +170,7 @@ export default function LeadForm({
       onChange={trackStart}
       onSubmit={handleSubmit}
       noValidate
-      className={`${className}`}
+      className={`ym-hide-content ${className}`}
     >
       {showTitle && (
         <div className="mb-5">
@@ -234,16 +235,14 @@ export default function LeadForm({
           aria-invalid={!!errors.consent}
           aria-describedby={errors.consent ? `${id}-consent-error` : undefined}
           onChange={set("consent")}
-          className="mt-0.5 w-4 h-4 rounded-[4px] border-[#d1d5db] bg-white text-[#111] accent-[#111] cursor-pointer"
+          className="ym-disable-keys mt-0.5 w-4 h-4 rounded-[4px] border-[#d1d5db] bg-white text-[#111] accent-[#111] cursor-pointer"
         />
         <label
           htmlFor={`${id}-consent`}
           className="text-xs text-ums-muted leading-relaxed cursor-pointer"
         >
           Даю согласие на{" "}
-          <span className="text-[#111] underline underline-offset-2">
-            обработку персональных данных
-          </span>
+          <PrivacyLink newTab>обработку персональных данных</PrivacyLink>
         </label>
       </div>
       {errors.consent && (

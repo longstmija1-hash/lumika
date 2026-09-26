@@ -1,4 +1,6 @@
 "use client";
+
+import PrivacyLink from "../../components/PrivacyLink";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
@@ -726,6 +728,7 @@ export default function SchoolPage() {
         <div>
           <Brand />
           <p>Одна школа. Разные пути к «я могу».</p>
+          <p><PrivacyLink /></p>
         </div>
         <a href={CONTACT_PHONE_HREF}>{CONTACT_PHONE}</a>
         <span>© {new Date().getFullYear()} Люмика</span>
